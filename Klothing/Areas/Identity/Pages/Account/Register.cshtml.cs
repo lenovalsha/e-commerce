@@ -154,6 +154,7 @@ namespace Klothing.Areas.Identity.Pages.Account
                     //save it to our session
                     var customers = await _context.Customers.FirstOrDefaultAsync(m => m.Email == Input.Email);
                     var customerId = customers.Id;
+                    
                     //save our customer to session
                     HttpContext.Session.SetInt32("customerId", customerId);
                     _logger.LogInformation("User created a new account with password.");
@@ -162,6 +163,7 @@ namespace Klothing.Areas.Identity.Pages.Account
                     cart.CustomerId = customerId;
                     _context.Carts.Add(cart);
                     await _context.SaveChangesAsync();
+                    HttpContext.Session.SetInt32("cartId", cart.Id);
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

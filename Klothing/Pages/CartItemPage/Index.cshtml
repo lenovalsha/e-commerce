@@ -3,6 +3,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    var cartId = HttpContext.Session.GetInt32("cartId");
 }
 
 <h1>Index</h1>
@@ -57,4 +58,5 @@
         }
     </tbody>
 </table>
-<button>Check Out</button>
+<button class="btn btn-outline-primary"><a asp-page="./AddCartItem" asp-route-productId="@cartId">Check out</a></button>
+
