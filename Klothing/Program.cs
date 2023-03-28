@@ -16,9 +16,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProvid
     .AddDefaultUI().AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
 //This is for the session saving //ADDED LN
-builder.Services.AddSession(options => {
-    options.IdleTimeout = TimeSpan.FromMinutes(30);
-});
+builder.Services.AddSession();
 builder.Services.AddMemoryCache();
 builder.Services.AddMvc();
 var app = builder.Build();

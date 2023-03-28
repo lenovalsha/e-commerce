@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Klothing.Data;
 using Klothing.Models;
 
-namespace Klothing.Pages.CartPage
+namespace Klothing.Pages.OrderPage
 {
     public class DetailsModel : PageModel
     {
@@ -19,23 +19,23 @@ namespace Klothing.Pages.CartPage
             _context = context;
         }
 
-      public Cart Cart { get; set; } = default!; 
+      public Order Order { get; set; } = default!; 
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Carts == null)
+            if (id == null || _context.Orders == null)
             {
                 return NotFound();
             }
 
-            var cart = await _context.Carts.FirstOrDefaultAsync(m => m.Id == id);
-            if (cart == null)
+            var order = await _context.Orders.FirstOrDefaultAsync(m => m.Id == id);
+            if (order == null)
             {
                 return NotFound();
             }
             else 
             {
-                Cart = cart;
+                Order = order;
             }
             return Page();
         }

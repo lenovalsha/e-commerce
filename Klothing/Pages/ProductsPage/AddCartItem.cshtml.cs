@@ -37,7 +37,7 @@ namespace Klothing.Pages.ProductsPage
             cartItem.IsActive = true;
             _context.CartItem.Add(cartItem);
             await _context.SaveChangesAsync();
-            return Page();
+            return Redirect("/CartItemPage/Index");
         }
 
         [BindProperty]
@@ -45,17 +45,6 @@ namespace Klothing.Pages.ProductsPage
 
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        public async Task<IActionResult> OnPostAsync()
-        {
-            if (!ModelState.IsValid || _context.CartItem == null || CartItem == null)
-            {
-                return Page();
-            }
-
-            _context.CartItem.Add(CartItem);
-            await _context.SaveChangesAsync();
-
-            return RedirectToPage("./Index");
-        }
+      
     }
 }

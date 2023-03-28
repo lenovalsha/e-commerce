@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Klothing.Data;
 using Klothing.Models;
 
-namespace Klothing.Pages.CartPage
+namespace Klothing.Pages.StatusPage
 {
     public class IndexModel : PageModel
     {
@@ -19,14 +19,13 @@ namespace Klothing.Pages.CartPage
             _context = context;
         }
 
-        public IList<Cart> Cart { get;set; } = default!;
+        public IList<Status> Status { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Carts != null)
+            if (_context.Status != null)
             {
-                Cart = await _context.Carts
-                .Include(c => c.Customer).ToListAsync();
+                Status = await _context.Status.ToListAsync();
             }
         }
     }

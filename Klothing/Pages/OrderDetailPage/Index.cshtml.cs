@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Klothing.Data;
 using Klothing.Models;
 
-namespace Klothing.Pages.ProductsPage
+namespace Klothing.Pages.OrderDetailPage
 {
     public class IndexModel : PageModel
     {
@@ -19,24 +19,16 @@ namespace Klothing.Pages.ProductsPage
             _context = context;
         }
 
-        public IList<Products> Products { get;set; } = default!;
-        public IList<Category> Categories { get; set; } = default!;
-
+        public IList<OrderDetail> OrderDetail { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Products != null)
+            if (_context.OrderDetails != null)
             {
-                Products = await _context.Products
-                .Include(p => p.Makeup).ToListAsync();
-
-
+                OrderDetail = await _context.OrderDetails
+                .Include(o => o.Order)
+                .Include(o => o.Product).ToListAsync();
             }
-            if (_context.Categories != null)
-            {
-                Categories = await _context.Categories.ToListAsync();
-            }
-
         }
     }
 }

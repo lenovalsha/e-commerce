@@ -8,41 +8,36 @@ using Microsoft.EntityFrameworkCore;
 using Klothing.Data;
 using Klothing.Models;
 
-namespace Klothing.Pages.CartItemPage
+namespace Klothing.Pages.StatusPage
 {
-    public class DeleteModel : PageModel
+    public class DetailsModel : PageModel
     {
         private readonly Klothing.Data.ApplicationDbContext _context;
 
-        public DeleteModel(Klothing.Data.ApplicationDbContext context)
+        public DetailsModel(Klothing.Data.ApplicationDbContext context)
         {
             _context = context;
         }
 
-        [BindProperty]
-      public CartItem CartItem { get; set; } = default!;
+      public Status Status { get; set; } = default!; 
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.CartItem == null)
+            if (id == null || _context.Status == null)
             {
                 return NotFound();
             }
 
-            var cartitem = await _context.CartItem.FirstOrDefaultAsync(m => m.Id == id);
-
-            if (cartitem == null)
+            var status = await _context.Status.FirstOrDefaultAsync(m => m.Id == id);
+            if (status == null)
             {
                 return NotFound();
             }
             else 
             {
-                CartItem = cartitem;
-                _context.CartItem.Remove(CartItem);
-                await _context.SaveChangesAsync();
+                Status = status;
             }
-            return RedirectToPage("./Index");
+            return Page();
         }
-       
     }
 }

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Klothing.Data;
 using Klothing.Models;
 
-namespace Klothing.Pages.CartPage
+namespace Klothing.Pages.OrderPage
 {
     public class EditModel : PageModel
     {
@@ -21,22 +21,23 @@ namespace Klothing.Pages.CartPage
         }
 
         [BindProperty]
-        public Cart Cart { get; set; } = default!;
+        public Order Order { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Carts == null)
+            if (id == null || _context.Orders == null)
             {
                 return NotFound();
             }
 
-            var cart =  await _context.Carts.FirstOrDefaultAsync(m => m.Id == id);
-            if (cart == null)
+            var order =  await _context.Orders.FirstOrDefaultAsync(m => m.Id == id);
+            if (order == null)
             {
                 return NotFound();
             }
-            Cart = cart;
-           ViewData["CustomerId"] = new SelectList(_context.Customers, "Id", "Id");
+            Order = order;
+           ViewData["CartId"] = new SelectList(_context.Carts, "Id", "Id");
+           ViewData["StatusId"] = new SelectList(_context.Status, "Id", "Id");
             return Page();
         }
 
@@ -49,7 +50,7 @@ namespace Klothing.Pages.CartPage
                 return Page();
             }
 
-            _context.Attach(Cart).State = EntityState.Modified;
+            _context.Attach(Order).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +58,7 @@ namespace Klothing.Pages.CartPage
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CartExists(Cart.Id))
+                if (!OrderExists(Order.Id))
                 {
                     return NotFound();
                 }
@@ -70,9 +71,9 @@ namespace Klothing.Pages.CartPage
             return RedirectToPage("./Index");
         }
 
-        private bool CartExists(int id)
+        private bool OrderExists(int id)
         {
-          return (_context.Carts?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Orders?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

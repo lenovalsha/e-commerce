@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Klothing.Data;
 using Klothing.Models;
 
-namespace Klothing.Pages.CartPage
+namespace Klothing.Pages.OrderPage
 {
     public class CreateModel : PageModel
     {
@@ -21,23 +21,24 @@ namespace Klothing.Pages.CartPage
 
         public IActionResult OnGet()
         {
-        ViewData["CustomerId"] = new SelectList(_context.Customers, "Id", "Id");
+        ViewData["CartId"] = new SelectList(_context.Carts, "Id", "Id");
+        ViewData["StatusId"] = new SelectList(_context.Status, "Id", "Id");
             return Page();
         }
 
         [BindProperty]
-        public Cart Cart { get; set; } = default!;
+        public Order Order { get; set; } = default!;
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Carts == null || Cart == null)
+          if (!ModelState.IsValid || _context.Orders == null || Order == null)
             {
                 return Page();
             }
 
-            _context.Carts.Add(Cart);
+            _context.Orders.Add(Order);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
