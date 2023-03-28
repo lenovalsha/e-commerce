@@ -1,0 +1,57 @@
+﻿@page
+@model Klothing.Pages.ProductsPage.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+@{
+    var productsByMakeup = Model.Products.GroupBy(p => p.MakeupId);
+
+}
+
+@foreach (var makeupGroup in productsByMakeup)
+{
+
+    <h2>@makeupGroup.First().Makeup.Name</h2>
+    <div class="container" @*id="product-@product.Id"*@>
+        <section>
+            <img class="img-fluid" src="~/img/@makeupGroup.First().Image">
+            <h3> @Html.DisplayFor(modelItem => @makeupGroup.First().Name)</h3>
+            <p>
+                @Html.DisplayFor(modelItem => @makeupGroup.First().Description)
+            </p>
+            <p>
+                @Html.DisplayFor(modelItem => @makeupGroup.First().Price)
+            </p>
+        </section>
+    </div>
+
+    @foreach (var item in makeupGroup)
+    {
+        <button class="btn btn-primary" data-id="@item.Id">@item.Name</button>
+
+        @if (User.IsInRole("Admin"))
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantityInStock)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        }
+
+
+        <button class="btn btn-outline-primary"><a asp-page="./AddCartItem" asp-route-productId="@item.Id">Add to Cart</a></button>
+    }
+ 
+}
+

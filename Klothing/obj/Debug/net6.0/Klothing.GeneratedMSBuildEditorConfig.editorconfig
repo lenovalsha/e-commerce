@@ -1,0 +1,184 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Klothing
+build_property.RootNamespace = Klothing
+build_property.ProjectDir = C:\Users\leila.noval\Desktop\WinterSem\ITEC245\Klothing-Store\Klothing\Klothing\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\leila.noval\Desktop\WinterSem\ITEC245\Klothing-Store\Klothing\Klothing
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Areas/Identity/Pages/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Areas/Identity/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Areas/Identity/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Areas/Identity/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Areas/Identity/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/CartItemPage/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydEl0ZW1QYWdlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/CartItemPage/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydEl0ZW1QYWdlXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/CartItemPage/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydEl0ZW1QYWdlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/CartItemPage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydEl0ZW1QYWdlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/CartItemPage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydEl0ZW1QYWdlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/CartPage/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydFBhZ2VcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/CartPage/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydFBhZ2VcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/CartPage/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydFBhZ2VcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/CartPage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydFBhZ2VcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/CartPage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydFBhZ2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/CategoryPage/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcnlQYWdlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/CategoryPage/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcnlQYWdlXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/CategoryPage/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcnlQYWdlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/CategoryPage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcnlQYWdlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/CategoryPage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWdvcnlQYWdlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/MakeupPage/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFrZXVwUGFnZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/MakeupPage/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFrZXVwUGFnZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/MakeupPage/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFrZXVwUGFnZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/MakeupPage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFrZXVwUGFnZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/MakeupPage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWFrZXVwUGFnZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/ProductsPage/AddCartItem.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNQYWdlXEFkZENhcnRJdGVtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/ProductsPage/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNQYWdlXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/ProductsPage/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNQYWdlXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/ProductsPage/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNQYWdlXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/ProductsPage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNQYWdlXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/ProductsPage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHNQYWdlXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/leila.noval/Desktop/WinterSem/ITEC245/Klothing-Store/Klothing/Klothing/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-0m0iv6ukl7
