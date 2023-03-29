@@ -1,0 +1,59 @@
+﻿@page
+@model Klothing.Pages.CheckOutPage.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    var customerId = HttpContext.Session.GetInt32("customerId");
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Customers.Id" />
+
+            <div class="form-group">
+                <label asp-for="Customers.FirstName" class="control-label"></label>
+                <input asp-for="Customers.FirstName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Customers.LastName" class="control-label"></label>
+                <input asp-for="Customers.LastName" class="form-control" />
+                <span asp-validation-for="Customers.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customers.Email" class="control-label"></label>
+                <input asp-for="Customers.Email" class="form-control" readonly/>
+                <span asp-validation-for="Customers.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Customers.Adress" class="control-label"></label>
+                <input asp-for="Customers.Adress"  class="form-control" />
+                <span asp-validation-for="Customers.Adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Card Number</label>
+                <input class="form-control" />
+                <span asp-validation-for="Customers.Adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Expiration</label>
+                <input class="form-control" />
+                <span asp-validation-for="Customers.Adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">CVV</label>
+                <input class="form-control" />
+                <span asp-validation-for="Customers.Adress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

@@ -21,11 +21,11 @@ namespace Klothing.Pages.OrderDetailPage
 
         public IList<OrderDetail> OrderDetail { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(int? id)
         {
             if (_context.OrderDetails != null)
             {
-                OrderDetail = await _context.OrderDetails
+                OrderDetail = await _context.OrderDetails.Where(m => m.OrderId == id)
                 .Include(o => o.Order)
                 .Include(o => o.Product).ToListAsync();
             }

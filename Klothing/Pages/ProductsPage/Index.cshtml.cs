@@ -19,24 +19,26 @@ namespace Klothing.Pages.ProductsPage
             _context = context;
         }
 
-        public IList<Products> Products { get;set; } = default!;
+        public IList<Products> Products { get; set; } = default!;
         public IList<Category> Categories { get; set; } = default!;
 
 
-        public async Task OnGetAsync()
+        public async Task OnGetAsync(string categoryId)
         {
             if (_context.Products != null)
             {
-                Products = await _context.Products
-                .Include(p => p.Makeup).ToListAsync();
-
-
+                var query =  _context.Products
+                .Include(p => p.Makeup).AsQueryable();
+                if(!string.IsNullOrEmpty(categoryId))
+                {
+                    query = query.Where(p => p.Makeup.CategoryId.ToString() == categoryId);
+                }
+                Products = await query.ToListAsync();
             }
             if (_context.Categories != null)
             {
                 Categories = await _context.Categories.ToListAsync();
             }
-
         }
     }
 }

@@ -21,14 +21,20 @@ namespace Klothing.Pages.OrderPage
 
         public IList<Order> Order { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
+            int? customer = HttpContext.Session.GetInt32("customerId");
+            if (customer == null)
+            {
+                return Redirect("/Identity/Account/Login");
+            }
             if (_context.Orders != null)
             {
-                Order = await _context.Orders
+                Order = await _context.Orders.Where(o=>o.Cart.CustomerId == customer)
                 .Include(o => o.Cart)
                 .Include(o => o.Status).ToListAsync();
             }
+            return Page();
         }
     }
 }

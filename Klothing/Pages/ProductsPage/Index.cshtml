@@ -13,24 +13,33 @@
 </p>
 
 @{
-    var productsByMakeup = Model.Products.GroupBy(p => p.MakeupId);
     //var categories = Model.Categories.GroupBy(p => p.Id);
 }
 <ul>
 
 @foreach(var category in Model.Categories)
 {
-    <li>@category.Name</li>
+    <li><a asp-page="./index" asp-route-categoryId="@category.Id">@category.Name</a></li>
 }
 </ul>
+@{
+    //var selectedCategoryId = Request.Query["categoryId"].ToString();
+    //var products = Model.Products;
+    //if(!string.IsNullOrEmpty(selectedCategoryId))
+    //{
+    //    int categoryId = int.Parse(selectedCategoryId);
+    //    products = products.Where(p => p.Makeup.CategoryId == categoryId).ToList();
+    //}
+    var productsByMakeup = Model.Products.GroupBy(p => p.MakeupId);
+}
 @foreach (var makeupGroup in productsByMakeup)
 {
     <h2>@makeupGroup.First().Makeup.Name</h2>
-    <div class="container" @*id="product-@product.Id"*@>
+    <div class="container" id="product-@makeupGroup.Key">
         <section>
-            <img class="img-fluid" src="~/img/@makeupGroup.First().Image">
+            <img class="img-fluid" src="~/img/@makeupGroup.First().Image" data-img="@makeupGroup.First().Image">
             <h3> @Html.DisplayFor(modelItem => @makeupGroup.First().Name)</h3>
-            <p>
+            <p data-description="@makeupGroup.First().Description">
                 @Html.DisplayFor(modelItem => @makeupGroup.First().Description)
             </p>
             <p>
@@ -41,7 +50,7 @@
 
     @foreach (var item in makeupGroup)
     {
-        <button class="btn btn-primary" data-id="@item.Id">@item.Name</button>
+        <button class="btn btn-primary product-btn" data-id="@item.Id" data-img="@item.Image">@item.Name</button>
 
         @if (User.IsInRole("Admin"))
         {
@@ -58,6 +67,28 @@
 
         <button class="btn btn-outline-primary"><a asp-page="./AddCartItem" asp-route-productId="@item.Id">Add to Cart</a></button>
     }
+
+    //we can only achieve this using javascript
+    //as it is client-side
+    <script>
+        $('.product-btn').unbind('click').click(function(){
+             alert("clicked");
+            @*//get the product id from buttons data-id*@
+            var productId = $(this).data('id');
+
+            var container = $('#product-'+productId);
+
+            @*//update the image*@
+            var image = container.find('img');
+            image.attr('src',image.data('img'));
+
+            //update details
+            var description = container.find('p').eq(0);
+            description.text(description.data('description'));
+
+
+        });
+        </script>
  
 }
 

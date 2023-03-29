@@ -127,6 +127,8 @@ namespace Klothing.Areas.Identity.Pages.Account
                     //save our customer to session
                     HttpContext.Session.SetInt32("customerId", customerId);
                     HttpContext.Session.SetInt32("cartId", Cart.Id);
+                    HttpContext.Session.SetString("email", Input.Email);
+
 
                     return LocalRedirect(returnUrl);
                 }

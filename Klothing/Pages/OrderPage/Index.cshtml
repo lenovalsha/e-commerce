@@ -14,7 +14,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Order[0].Cart)
+                @Html.DisplayNameFor(model => model.Order[0].Id)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Order[0].OrderDate)
@@ -32,7 +32,7 @@
 @foreach (var item in Model.Order) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Cart.Id)
+                @Html.DisplayFor(modelItem => item.Id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.OrderDate)
@@ -41,12 +41,10 @@
                 @Html.DisplayFor(modelItem => item.ShippedDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status.Id)
+                @Html.DisplayFor(modelItem => item.Status.Name)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-page="/OrderDetailPage/Index" asp-route-id="@item.Id">Details</a> |
             </td>
         </tr>
 }

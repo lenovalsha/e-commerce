@@ -35,7 +35,6 @@ else
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseSession();
 //ADDED LN
 app.UseSession();
 app.UseRouting();

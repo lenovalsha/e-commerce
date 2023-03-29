@@ -54,6 +54,9 @@ namespace Klothing.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
+                    b.Property<decimal?>("Price")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<int?>("ProductId")
                         .HasColumnType("int");
 
@@ -151,7 +154,7 @@ namespace Klothing.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("CartId")
+                    b.Property<int?>("CartId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("OrderDate")
@@ -180,16 +183,16 @@ namespace Klothing.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("OrderId")
+                    b.Property<int?>("OrderId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Price")
+                    b.Property<decimal?>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("ProductId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Quantity")
+                    b.Property<int?>("Quantity")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -518,9 +521,7 @@ namespace Klothing.Migrations
                 {
                     b.HasOne("Klothing.Models.Cart", "Cart")
                         .WithMany("Orders")
-                        .HasForeignKey("CartId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CartId");
 
                     b.HasOne("Klothing.Models.Status", "Status")
                         .WithMany("Orders")
@@ -537,15 +538,11 @@ namespace Klothing.Migrations
                 {
                     b.HasOne("Klothing.Models.Order", "Order")
                         .WithMany("Details")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OrderId");
 
                     b.HasOne("Klothing.Models.Products", "Product")
                         .WithMany("Details")
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductId");
 
                     b.Navigation("Order");
 

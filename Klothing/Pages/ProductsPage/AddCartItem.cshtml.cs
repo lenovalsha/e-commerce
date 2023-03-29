@@ -25,16 +25,19 @@ namespace Klothing.Pages.ProductsPage
             {
                 return Redirect("/Identity/Account/Login");
             }
-            var _productId = productId;
             //fint their cart       
             var Cart = _context.Carts.FirstOrDefault(m=> m.CustomerId == customerId);
+            var product = _context.Products.FirstOrDefault(m => m.Id == productId);
+
+
             cartId = Cart.Id;           
             //create the cartItem
             CartItem cartItem = new CartItem(); 
-            cartItem.ProductId = _productId;
+            cartItem.ProductId = productId;
             cartItem.CartId = cartId;
             cartItem.Quantity = 1;
             cartItem.IsActive = true;
+            cartItem.Price = product.Price;
             _context.CartItem.Add(cartItem);
             await _context.SaveChangesAsync();
             return Redirect("/CartItemPage/Index");
