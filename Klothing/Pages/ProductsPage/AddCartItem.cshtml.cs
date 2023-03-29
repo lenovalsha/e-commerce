@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore;
 
 namespace Klothing.Pages.ProductsPage
 {
@@ -28,9 +29,11 @@ namespace Klothing.Pages.ProductsPage
             //fint their cart       
             var Cart = _context.Carts.FirstOrDefault(m=> m.CustomerId == customerId);
             var product = _context.Products.FirstOrDefault(m => m.Id == productId);
-
-
+            //find a cartitem that has this productId already
+            var cartExist = _context.CartItem.FirstOrDefault(m => m.ProductId == productId);
             cartId = Cart.Id;           
+            if(cartExist == null)//if it doesnt exist then make a new one
+            {
             //create the cartItem
             CartItem cartItem = new CartItem(); 
             cartItem.ProductId = productId;
@@ -40,6 +43,15 @@ namespace Klothing.Pages.ProductsPage
             cartItem.Price = product.Price;
             _context.CartItem.Add(cartItem);
             await _context.SaveChangesAsync();
+
+            }
+            else //else update the quantity
+            {
+                cartExist.Quantity++;
+                _context.Attach(cartExist).State = EntityState.Modified;
+                _context.SaveChangesAsync();
+            }
+
             return Redirect("/CartItemPage/Index");
         }
 

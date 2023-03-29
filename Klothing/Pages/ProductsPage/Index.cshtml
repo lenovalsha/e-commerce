@@ -34,8 +34,8 @@
 }
 @foreach (var makeupGroup in productsByMakeup)
 {
+    <h2>product-@makeupGroup.Key</h2>
     <div class="container" id="product-@makeupGroup.Key">
-    <h2>product-@makeupGroup</h2>
         <section>
             <img class="img-fluid" src="~/img/@makeupGroup.First().Image" data-img="@makeupGroup.FirstOrDefault().Image">
             <h3> @Html.DisplayFor(modelItem => @makeupGroup.First().Name)</h3>
@@ -50,7 +50,7 @@
 
     @foreach (var item in makeupGroup)
     {
-        <button class="btn btn-primary product-btn" data-id="@item.Makeup.Id" data-itemImage="@item.Image">@item.Name</button>
+        <button class="btn btn-primary product-btn" data-id="@item.Makeup.Id" data-itemid="@item.Image">@item.Name</button>
         @if (User.IsInRole("Admin"))
         {
             <td>
@@ -74,7 +74,7 @@
              @*alert("clicked");*@
             @*//get the product id from buttons data-id*@
             var makeupId = $(this).data('id');
-            var productImage = $(this).data('itemImage');
+            var productImage = $(this).data('itemid');
             @*alert(productImage);*@
             var container = $('#product-'+makeupId);
 
