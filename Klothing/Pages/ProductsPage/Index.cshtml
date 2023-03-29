@@ -34,10 +34,10 @@
 }
 @foreach (var makeupGroup in productsByMakeup)
 {
-    <h2>@makeupGroup.First().Makeup.Name</h2>
     <div class="container" id="product-@makeupGroup.Key">
+    <h2>product-@makeupGroup</h2>
         <section>
-            <img class="img-fluid" src="~/img/@makeupGroup.First().Image" data-img="@makeupGroup.First().Image">
+            <img class="img-fluid" src="~/img/@makeupGroup.First().Image" data-img="@makeupGroup.FirstOrDefault().Image">
             <h3> @Html.DisplayFor(modelItem => @makeupGroup.First().Name)</h3>
             <p data-description="@makeupGroup.First().Description">
                 @Html.DisplayFor(modelItem => @makeupGroup.First().Description)
@@ -50,8 +50,7 @@
 
     @foreach (var item in makeupGroup)
     {
-        <button class="btn btn-primary product-btn" data-id="@item.Id" data-img="@item.Image">@item.Name</button>
-
+        <button class="btn btn-primary product-btn" data-id="@item.Makeup.Id" data-itemImage="@item.Image">@item.Name</button>
         @if (User.IsInRole("Admin"))
         {
             <td>
@@ -72,19 +71,20 @@
     //as it is client-side
     <script>
         $('.product-btn').unbind('click').click(function(){
-             alert("clicked");
+             @*alert("clicked");*@
             @*//get the product id from buttons data-id*@
-            var productId = $(this).data('id');
-
-            var container = $('#product-'+productId);
+            var makeupId = $(this).data('id');
+            var productImage = $(this).data('itemImage');
+            @*alert(productImage);*@
+            var container = $('#product-'+makeupId);
 
             @*//update the image*@
             var image = container.find('img');
-            image.attr('src',image.data('img'));
-
-            //update details
+            image.attr('src', 'img/' + productImage);
+            @*//update details*@
             var description = container.find('p').eq(0);
             description.text(description.data('description'));
+            @*alert(description.data('description'));*@
 
 
         });

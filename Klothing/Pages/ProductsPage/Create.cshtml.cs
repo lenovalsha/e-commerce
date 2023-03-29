@@ -21,7 +21,7 @@ namespace Klothing.Pages.ProductsPage
 
         public IActionResult OnGet()
         {
-        ViewData["MakeupId"] = new SelectList(_context.Makeups, "Id", "Name");
+            ViewData["MakeupId"] = new SelectList(_context.Makeups, "Id", "Name");
             return Page();
         }
 
