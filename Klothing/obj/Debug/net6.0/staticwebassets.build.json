@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Dg0ME/dNUBQgQ+ONmOTVKt3bGwMl4ZasqgVO77OCfN8=",
+  "Hash": "9x2MZPa7xRPPiY1AKOQSRVm4lkUFUwoN6CtFh6RpWqU=",
   "Source": "Klothing",
   "BasePath": "_content/Klothing",
   "Mode": "Default",
@@ -1120,6 +1120,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\blush.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\leila.noval\\Desktop\\WinterSem\\ITEC245\\Final\\Klothing\\wwwroot\\img\\blush2.jpg",
+      "SourceId": "Klothing",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\leila.noval\\Desktop\\WinterSem\\ITEC245\\Final\\Klothing\\wwwroot\\",
+      "BasePath": "_content/Klothing",
+      "RelativePath": "img/blush2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\blush2.jpg"
     },
     {
       "Identity": "C:\\Users\\leila.noval\\Desktop\\WinterSem\\ITEC245\\Final\\Klothing\\wwwroot\\img\\pink.jpg",

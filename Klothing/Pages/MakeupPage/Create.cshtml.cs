@@ -39,7 +39,7 @@ namespace Klothing.Pages.MakeupPage
             _context.Makeups.Add(Makeup);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/ProductsPage/Create");
         }
     }
 }

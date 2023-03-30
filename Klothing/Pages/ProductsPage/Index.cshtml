@@ -6,14 +6,11 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-
-@{
-    //var categories = Model.Categories.GroupBy(p => p.Id);
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-page="Create">Create New</a>
+    </p>
 }
 <ul>
 
@@ -23,13 +20,7 @@
     }
 </ul>
 @{
-    //var selectedCategoryId = Request.Query["categoryId"].ToString();
-    //var products = Model.Products;
-    //if(!string.IsNullOrEmpty(selectedCategoryId))
-    //{
-    //    int categoryId = int.Parse(selectedCategoryId);
-    //    products = products.Where(p => p.Makeup.CategoryId == categoryId).ToList();
-    //}
+    
     var productsByMakeup = Model.Products.GroupBy(p => p.MakeupId);
 }
 <div class="rows">
@@ -48,9 +39,9 @@
             <p>
                 @Html.DisplayFor(modelItem => @makeupGroup.First().Price)
             </p>
-    @foreach (var item in makeupGroup)
-    {
-            <button class="btn btn-primary product-btn" data-id="@item.Makeup.Id" data-itemid="@item.Id" data-itemName="@item.Name" data-itemImage="@item.Image" data-itemDescription="@item.Description">@item.Name</button>
+             @foreach (var item in makeupGroup)
+            {
+            <button class="btn btn-primary option" data-id="@item.Makeup.Id" data-itemid="@item.Id" data-itemName="@item.Name" data-itemImage="@item.Image" data-itemDescription="@item.Description" style="background-image:url(img/@item.Image)"></button>
             if(item.QuantityInStock <=0)
             {
            <button disabled class="addtocart" id="@item.Id"><a class="disabled" asp-page="./AddCartItem" asp-route-productId="@item.Id">Sold Out</a></button>
@@ -58,8 +49,8 @@
             {
            <button class="addtocart" id="@item.Id"><a asp-page="./AddCartItem" asp-route-productId="@item.Id">Add to Cart</a></button>
             }
-        @if (User.IsInRole("Admin"))
-        {
+            @if (User.IsInRole("Admin"))
+            {
             <td>
                 @Html.DisplayFor(modelItem => item.QuantityInStock)
             </td>
@@ -68,24 +59,24 @@
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
             </td>
-        }
+            }
 
 
     }
         </section>
     </div>
-
-    }
+ }
+    
     </div>
 
-    //we can only achieve this using javascript
-    //as it is client-side
+@*    //we can only achieve this using javascript
+    //as it is client-side*@
     <script>
         const buttons = document.getElementsByClassName("addtocart");
         $(buttons).css('display','none');
         var lastbuttonClickedId;
 
-        $('.product-btn').unbind('click').click(function () {
+        $('.option').unbind('click').click(function () {
         const buttonlastClicked = document.getElementById(lastbuttonClickedId); //get the last buttonclicked
         $(buttonlastClicked).css('display','none'); //make it disappear
         @*//get the product id from buttons data-id*@
@@ -108,7 +99,7 @@
         description.text(productDescription);
 
         
-        $('#'+productId).css('background-color','yellow');
+        //$('#'+productId).css('background-color','yellow');
         $('#'+productId).css('display','block');
         lastbuttonClickedId = productId;
 
