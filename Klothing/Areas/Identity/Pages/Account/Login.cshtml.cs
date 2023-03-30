@@ -123,7 +123,7 @@ namespace Klothing.Areas.Identity.Pages.Account
                     //find our customer that has the same email
                     var customers = await _context.Customers.FirstOrDefaultAsync(m => m.Email == Input.Email);
                     var customerId = customers.Id;
-                    var Cart = await _context.Carts.FirstOrDefaultAsync(m => m.CustomerId == customerId);
+                    var Cart = await _context.Carts.FirstOrDefaultAsync(m => m.CustomerId == customerId && m.IsActive);
                     //save our customer to session
                     HttpContext.Session.SetInt32("customerId", customerId);
                     HttpContext.Session.SetInt32("cartId", Cart.Id);

@@ -73,6 +73,10 @@ namespace Klothing.Pages.CheckOutPage
             {
                 if (cartItem.IsActive)
                 {
+                    var product = _context.Products.FirstOrDefault(m=>m.Id == cartItem.ProductId);
+                    //lets update the product quantityInStock
+                    product.QuantityInStock-= cartItem.Quantity;
+
                     OrderDetail orderDetail = new OrderDetail();
                     orderDetail.OrderId = order.Id;
                     orderDetail.ProductId = cartItem.ProductId;
@@ -82,7 +86,9 @@ namespace Klothing.Pages.CheckOutPage
                     //modify the cartitem and inactive it
                     cartItem.IsActive = false;
                     _context.Attach(cartItem).State = EntityState.Modified;
+                    _context.Attach(product).State = EntityState.Modified;
                     _context.OrderDetails.Add(orderDetail);
+                    
                     await   _context.SaveChangesAsync();
                 }
             }
@@ -96,6 +102,8 @@ namespace Klothing.Pages.CheckOutPage
             newcart.IsActive = true;
             _context.Carts.Add(newcart);
             await _context.SaveChangesAsync();
+
+            HttpContext.Session.SetInt32("cartId", newcart.Id);
             
             //show the order details
             return RedirectToPage("/OrderDetailPage/Index", new {id = order.Id});

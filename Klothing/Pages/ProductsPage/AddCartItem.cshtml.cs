@@ -2,6 +2,7 @@ using Klothing.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Build.FileSystem;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
 
@@ -19,38 +20,45 @@ namespace Klothing.Pages.ProductsPage
         public async Task<IActionResult>OnGetAsync(int? productId)
         {
             //variable
-            int cartId;
             //make a cart at the same time make a cart item
             int? customerId = HttpContext.Session.GetInt32("customerId");
+            int? cartId = HttpContext.Session.GetInt32("cartId");
             if(customerId== null)
             {
                 return Redirect("/Identity/Account/Login");
             }
-            //fint their cart       
-            var Cart = _context.Carts.FirstOrDefault(m=> m.CustomerId == customerId);
-            var product = _context.Products.FirstOrDefault(m => m.Id == productId);
-            //find a cartitem that has this productId already
-            cartId = Cart.Id;           
-            var cartExist = _context.CartItem.FirstOrDefault(m => m.ProductId == productId && m.CartId == cartId && m.Cart.IsActive == true);
-            if(cartExist == null)//if it doesnt exist then make a new one
-             {
-            //create the cartItem
-            CartItem cartItem = new CartItem(); 
-            cartItem.ProductId = productId;
-            cartItem.CartId = cartId;
-            cartItem.Quantity = 1;
-            cartItem.IsActive = true;
-            cartItem.Price = product.Price;
-            _context.CartItem.Add(cartItem);
-            await _context.SaveChangesAsync();
 
-            }
-            else //else update the quantity
+            //find the active cart for this customer
+            var activeCart = await _context.Carts.Include(c => c.cartItems).FirstOrDefaultAsync(c => c.CustomerId == customerId && c.IsActive);
+
+            if(activeCart != null)
             {
-                cartExist.Quantity++;
-                _context.Attach(cartExist).State = EntityState.Modified;
-                _context.SaveChangesAsync();
+                var cartItem = activeCart.cartItems.FirstOrDefault(c=>c.ProductId == productId);
+
+                if(cartItem != null)//if an active cart item exist,let increment the quantity
+                {
+                    cartItem.Quantity++;
+                    _context.Attach(cartItem).State = EntityState.Modified;
+                    await _context.SaveChangesAsync();
+                }else
+                {
+                    var product = _context.Products.FirstOrDefault(m => m.Id == productId);
+                    //create the cartItem
+                    CartItem newCartItem = new CartItem();
+                    newCartItem.ProductId = productId;
+                    newCartItem.CartId = cartId;
+                    newCartItem.Quantity = 1;
+                    newCartItem.IsActive = true;
+                    newCartItem.Price = product.Price;
+                    _context.CartItem.Add(newCartItem);
+                    await _context.SaveChangesAsync();
+                }
             }
+            else
+            {
+                return Redirect("/Identity/Account/Login");
+            }
+           
 
             return Redirect("/CartItemPage/Index");
         }
