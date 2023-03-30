@@ -16,7 +16,5 @@ namespace Klothing.Models
             Orders = new List<Order>();
             cartItems = new List<CartItem>();
         }
-
-
     }
 }

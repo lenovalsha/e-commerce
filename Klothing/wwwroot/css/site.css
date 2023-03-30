@@ -19,3 +19,24 @@ body {
      width:200px;
      height:200px;
  }
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+.rows{
+    background-color:rebeccapurple;
+    display:flex;
+    flex-wrap:wrap;
+    
+}
+.rows > .container{
+    flex:20%;
+    display:flex;
+    justify-content:center;
+    background-color:yellow;
+    width:300px;
+}
+.addtocart{
+    width:200px;
+    height:50px;
+}

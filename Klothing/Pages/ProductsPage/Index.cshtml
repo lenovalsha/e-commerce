@@ -17,10 +17,10 @@
 }
 <ul>
 
-@foreach(var category in Model.Categories)
-{
-    <li><a asp-page="./index" asp-route-categoryId="@category.Id">@category.Name</a></li>
-}
+    @foreach (var category in Model.Categories)
+    {
+        <li><a asp-page="./index" asp-route-categoryId="@category.Id">@category.Name</a></li>
+    }
 </ul>
 @{
     //var selectedCategoryId = Request.Query["categoryId"].ToString();
@@ -32,25 +32,32 @@
     //}
     var productsByMakeup = Model.Products.GroupBy(p => p.MakeupId);
 }
+<div class="rows">
 @foreach (var makeupGroup in productsByMakeup)
 {
-    <h2>product-@makeupGroup.Key</h2>
+    @*<h2>product-@makeupGroup.Key</h2>*@
     <div class="container" id="product-@makeupGroup.Key">
         <section>
             <img class="img-fluid" src="~/img/@makeupGroup.First().Image" data-img="@makeupGroup.FirstOrDefault().Image">
-            <h3> @Html.DisplayFor(modelItem => @makeupGroup.First().Name)</h3>
-            <p data-description="@makeupGroup.First().Description">
+            <h3>
+                @Html.DisplayFor(modelItem => @makeupGroup.First().Name)
+            </h3>
+            <h7>
                 @Html.DisplayFor(modelItem => @makeupGroup.First().Description)
-            </p>
+            </h7>
             <p>
                 @Html.DisplayFor(modelItem => @makeupGroup.First().Price)
             </p>
-        </section>
-    </div>
-
     @foreach (var item in makeupGroup)
     {
-        <button class="btn btn-primary product-btn" data-id="@item.Makeup.Id" data-itemid="@item.Image">@item.Name</button>
+            <button class="btn btn-primary product-btn" data-id="@item.Makeup.Id" data-itemid="@item.Id" data-itemName="@item.Name" data-itemImage="@item.Image" data-itemDescription="@item.Description">@item.Name</button>
+            if(item.QuantityInStock <=0)
+            {
+           <button disabled class="addtocart" id="@item.Id"><a class="disabled" asp-page="./AddCartItem" asp-route-productId="@item.Id">Sold Out</a></button>
+            }else
+            {
+           <button class="addtocart" id="@item.Id"><a asp-page="./AddCartItem" asp-route-productId="@item.Id">Add to Cart</a></button>
+            }
         @if (User.IsInRole("Admin"))
         {
             <td>
@@ -64,31 +71,51 @@
         }
 
 
-        <button class="btn btn-outline-primary"><a asp-page="./AddCartItem" asp-route-productId="@item.Id">Add to Cart</a></button>
     }
+        </section>
+    </div>
+
+    }
+    </div>
 
     //we can only achieve this using javascript
     //as it is client-side
     <script>
-        $('.product-btn').unbind('click').click(function(){
-             @*alert("clicked");*@
-            @*//get the product id from buttons data-id*@
-            var makeupId = $(this).data('id');
-            var productImage = $(this).data('itemid');
-            @*alert(productImage);*@
-            var container = $('#product-'+makeupId);
+        const buttons = document.getElementsByClassName("addtocart");
+        $(buttons).css('display','none');
+        var lastbuttonClickedId;
 
-            @*//update the image*@
-            var image = container.find('img');
-            image.attr('src', 'img/' + productImage);
-            @*//update details*@
-            var description = container.find('p').eq(0);
-            description.text(description.data('description'));
-            @*alert(description.data('description'));*@
+        $('.product-btn').unbind('click').click(function () {
+        const buttonlastClicked = document.getElementById(lastbuttonClickedId); //get the last buttonclicked
+        $(buttonlastClicked).css('display','none'); //make it disappear
+        @*//get the product id from buttons data-id*@
+        var productId = $(this).data('itemid');
+        var makeupId = $(this).data('id');
+        var productImage = $(this).data('itemimage');
+        var productDescription = $(this).data('itemdescription');
+        var productName = $(this).data('itemname');
 
+        var container = $('#product-' + makeupId);
 
-        });
-        </script>
- 
+        var name = container.find('h3');
+        name.text(productName);
+
+        var image = container.find('img');
+        image.attr('src', 'img/' + productImage);
+        
+        @*//update details*@
+        var description = container.find('h7');
+        description.text(productDescription);
+
+        
+        $('#'+productId).css('background-color','yellow');
+        $('#'+productId).css('display','block');
+        lastbuttonClickedId = productId;
+
+            
+                });
+                
+    </script>
+
 }
 
