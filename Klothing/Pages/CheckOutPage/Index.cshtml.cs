@@ -59,7 +59,7 @@ namespace Klothing.Pages.CheckOutPage
             Order order = new Order();
             order.CartId = cartId;
             order.OrderDate = DateTime.Now;
-            order.StatusId = 2;
+            order.StatusId = 1; //payment received
            _context.Orders.Add(order);
            await _context.SaveChangesAsync();
             
@@ -84,7 +84,6 @@ namespace Klothing.Pages.CheckOutPage
                     _context.Attach(cartItem).State = EntityState.Modified;
                     _context.OrderDetails.Add(orderDetail);
                     await   _context.SaveChangesAsync();
-
                 }
             }
                 cart.IsActive = false;

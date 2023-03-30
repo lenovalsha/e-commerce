@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Klothing.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230330031158_init8")]
-    partial class init8
+    [Migration("20230330032813_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
