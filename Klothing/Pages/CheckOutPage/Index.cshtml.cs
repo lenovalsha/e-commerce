@@ -42,6 +42,8 @@ namespace Klothing.Pages.CheckOutPage
         public async Task<IActionResult> OnPostAsync()
         {
             int? cartId = HttpContext.Session.GetInt32("cartId");
+            int? customerId = HttpContext.Session.GetInt32("customerId");
+
             //if (!ModelState.IsValid) //UNDO THIS LATER FOR VALIDATION
             //{
             //    return Page();
@@ -65,7 +67,8 @@ namespace Klothing.Pages.CheckOutPage
             //now lets make a orderdetails
             //get every products in the cart
             //foreach (var product in Car)
-            var cartItems = await _context.CartItem.Where(m => m.CartId == cartId).ToListAsync();
+            var cartItems = await _context.CartItem.Where(m => m.CartId == cartId && m.Cart.IsActive).ToListAsync();
+            var cart = _context.Carts.FirstOrDefault(m => m.Id == cartId);
             foreach (var cartItem in cartItems)
             {
                 if (cartItem.IsActive)
@@ -84,6 +87,17 @@ namespace Klothing.Pages.CheckOutPage
 
                 }
             }
+                cart.IsActive = false;
+                _context.Attach(cart).State = EntityState.Modified;
+                await _context.SaveChangesAsync();
+
+            //make a new cart
+            Cart newcart = new Cart();
+            newcart.CustomerId = customerId;
+            newcart.IsActive = true;
+            _context.Carts.Add(newcart);
+            await _context.SaveChangesAsync();
+            
             //show the order details
             return RedirectToPage("/OrderDetailPage/Index", new {id = order.Id});
         }

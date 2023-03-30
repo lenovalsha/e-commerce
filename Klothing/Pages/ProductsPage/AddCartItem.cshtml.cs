@@ -30,8 +30,8 @@ namespace Klothing.Pages.ProductsPage
             var Cart = _context.Carts.FirstOrDefault(m=> m.CustomerId == customerId);
             var product = _context.Products.FirstOrDefault(m => m.Id == productId);
             //find a cartitem that has this productId already
-            var cartExist = _context.CartItem.FirstOrDefault(m => m.ProductId == productId);
             cartId = Cart.Id;           
+            var cartExist = _context.CartItem.FirstOrDefault(m => m.ProductId == productId && m.CartId == cartId && m.Cart.IsActive == true);
             if(cartExist == null)//if it doesnt exist then make a new one
             {
             //create the cartItem

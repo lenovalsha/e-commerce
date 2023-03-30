@@ -22,6 +22,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Klothing.Areas.Identity.Pages.Account
 {
@@ -151,6 +152,7 @@ namespace Klothing.Areas.Identity.Pages.Account
                     //create customer and save to database
                     _context.Customers.Add(customer);
                    await _context.SaveChangesAsync();
+
                     //save it to our session
                     var customers = await _context.Customers.FirstOrDefaultAsync(m => m.Email == Input.Email);
                     var customerId = customers.Id;
@@ -161,6 +163,7 @@ namespace Klothing.Areas.Identity.Pages.Account
                     //Make a cart for this user isntantly
                     Cart cart = new Cart();
                     cart.CustomerId = customerId;
+                    cart.IsActive = true;
                     _context.Carts.Add(cart);
                     await _context.SaveChangesAsync();
                     HttpContext.Session.SetInt32("cartId", cart.Id);

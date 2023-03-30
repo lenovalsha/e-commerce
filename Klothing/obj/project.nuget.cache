@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XzvUytPEf0EGuAGEGO+Cj5v/C76t7GVj2INM9pomqZLF6HKXXPCLJBq9poWkswnKf4f4gNLOt3t4YnlY9ZAB0Q==",
+  "dgSpecHash": "bdDaoy/6xPc/TphoAUZhHGhmjXqV8zRvPnXCTpgerSTz6Ng+D9EAjthKXX43go/8nJ7IpMhZcNQPTRdukZnsig==",
   "success": true,
-  "projectFilePath": "C:\\Users\\leila.noval\\Desktop\\WinterSem\\ITEC245\\Klothing-Store\\Klothing\\Klothing\\Klothing.csproj",
+  "projectFilePath": "C:\\Users\\leila.noval\\Desktop\\WinterSem\\ITEC245\\Final\\Klothing\\Klothing.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\leila.noval\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\leila.noval\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
