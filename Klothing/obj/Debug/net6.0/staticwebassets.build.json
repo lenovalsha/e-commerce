@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "2cc8h0ZWP3bOFp+uD5IfT8WepkecWprcGvxuZ+5ow9s=",
+  "Hash": "9oCLUV7KwBr2A9EtrfhtMyp9HMvusw4gJ9YRQrJKY+I=",
   "Source": "Klothing",
   "BasePath": "_content/Klothing",
   "Mode": "Default",
@@ -1188,6 +1188,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\redLipstick.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\leila.noval\\Desktop\\WinterSem\\ITEC245\\Final\\Klothing\\wwwroot\\img\\user.png",
+      "SourceId": "Klothing",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\leila.noval\\Desktop\\WinterSem\\ITEC245\\Final\\Klothing\\wwwroot\\",
+      "BasePath": "_content/Klothing",
+      "RelativePath": "img/user.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\user.png"
     },
     {
       "Identity": "C:\\Users\\leila.noval\\Desktop\\WinterSem\\ITEC245\\Final\\Klothing\\wwwroot\\js\\site.js",

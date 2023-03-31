@@ -20,6 +20,24 @@ body {
  padding:0;
 
 }
+#user{
+    align-content:center;
+    position:relative;
+    margin-top:5px;
+}
+#username{
+    display:none;
+    position:absolute;
+    top:40px;
+}
+#user:hover + #username{
+    display:block;
+}
+#userIcon{
+    align-items:center;
+    width:30px;
+    height:30px;
+}
 .top-Image{
     width:100%;
     height:700px;
