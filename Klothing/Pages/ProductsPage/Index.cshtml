@@ -12,6 +12,9 @@
         <a asp-page="Create">Create New</a>
     </p>
 }
+<div class="top-Image">
+</div>
+<section class="categories">
 <ul>
 
     @foreach (var category in Model.Categories)
@@ -19,14 +22,16 @@
         <li><a asp-page="./index" asp-route-categoryId="@category.Id">@category.Name</a></li>
     }
 </ul>
+
+</section>
 @{
     
     var productsByMakeup = Model.Products.GroupBy(p => p.MakeupId);
 }
+
 <div class="rows">
 @foreach (var makeupGroup in productsByMakeup)
 {
-    @*<h2>product-@makeupGroup.Key</h2>*@
     <div class="container" id="product-@makeupGroup.Key">
         <section>
             <img class="img-fluid" src="~/img/@makeupGroup.First().Image" data-img="@makeupGroup.FirstOrDefault().Image">
@@ -41,28 +46,26 @@
             </p>
              @foreach (var item in makeupGroup)
             {
-            <button class="btn btn-primary option" data-id="@item.Makeup.Id" data-itemid="@item.Id" data-itemName="@item.Name" data-itemImage="@item.Image" data-itemDescription="@item.Description" style="background-image:url(img/@item.Image)"></button>
-            if(item.QuantityInStock <=0)
-            {
-           <button disabled class="addtocart" id="@item.Id"><a class="disabled" asp-page="./AddCartItem" asp-route-productId="@item.Id">Sold Out</a></button>
-            }else
-            {
-           <button class="addtocart" id="@item.Id"><a asp-page="./AddCartItem" asp-route-productId="@item.Id">Add to Cart</a></button>
-            }
-            @if (User.IsInRole("Admin"))
-            {
-            <td>
-                @Html.DisplayFor(modelItem => item.QuantityInStock)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-            }
-
-
-    }
+               <button class="btn btn-primary option" data-id="@item.Makeup.Id" data-itemid="@item.Id" data-itemName="@item.Name" data-itemImage="@item.Image" data-itemDescription="@item.Description" style="background-image:url(img/@item.Image)"></button>
+               if(item.QuantityInStock <=0)
+               {
+              <button disabled class="addtocart" id="@item.Id"><a class="disabled" asp-page="./AddCartItem" asp-route-productId="@item.Id">Sold Out</a></button>
+               }else
+               {
+              <button class="addtocart" id="@item.Id"><a asp-page="./AddCartItem" asp-route-productId="@item.Id">Add to Cart</a></button>
+               }
+               @if (User.IsInRole("Admin"))
+               {
+               <td>
+                   @Html.DisplayFor(modelItem => item.QuantityInStock)
+               </td>
+               <td>
+                   <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                   <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                   <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+               </td>
+               }
+             }
         </section>
     </div>
  }
@@ -108,5 +111,5 @@
                 
     </script>
 
-}
+
 

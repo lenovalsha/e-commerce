@@ -4,13 +4,12 @@
 @{
     ViewData["Title"] = "Index";
     var cartId = HttpContext.Session.GetInt32("cartId");
+    decimal? total = 0;
 }
 
 <h1>Index</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -21,13 +20,18 @@
             <th>
                 @Html.DisplayNameFor(model => model.CartItem[0].Product.Image)
             </th>
+           
             <th>
                 @Html.DisplayNameFor(model => model.CartItem[0].Quantity)
             </th>           
             <th>
                 @Html.DisplayNameFor(model => model.CartItem[0].Product.Price)
             </th>
-            <th></th>
+            <th>
+                Total
+            </th>
+            <th>Delete</th>
+            
         </tr>
     </thead>
     <tbody>
@@ -38,23 +42,34 @@
             if (item.IsActive)
             {
                 <tr>
-                    <td>
+                <td>
                     @Html.DisplayFor(modelItem => item.Product.Name)
                 </td>
                 <td>
                     <img class="img-fluid" src="~/img/@item.Product.Image">
                 </td>
                 <td>
+                    <form method="post">
+                    <input type="hidden" name="itemId" value="@item.Id"/> @*send the item Id to the post*@
+                    <button name="operation" value="minus">-</button> @*send the operation*@
                     @Html.DisplayFor(modelItem => item.Quantity)
+                    <button name="operation" value="plus">+</button>@*send the operation*@
+                    </form>
                 </td>
           
                 <td>
-                    @Html.DisplayFor(modelItem => item.Product.Price)
+                    $@Html.DisplayFor(modelItem => item.Product.Price)
                 </td>
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                        @{
+                            decimal? itemTotal = item.Quantity * item.Price;
+                            total += itemTotal;
+                        }
+                    $@(item.Price * item.Quantity)
+                   
+                </td>
+                <td>
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Remove</a>
                 </td>
             </tr>
             }
@@ -62,4 +77,8 @@
     </tbody>
 </table>
 <button class="btn btn-outline-primary"><a asp-page="/CheckOutPage/Index" asp-route-productId="@cartId">Check Out</a></button>
+<h3>
+    $@total
+</h3>
+
 

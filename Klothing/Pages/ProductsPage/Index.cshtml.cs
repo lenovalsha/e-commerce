@@ -38,6 +38,7 @@ namespace Klothing.Pages.ProductsPage
             if (_context.Categories != null)
             {
                 Categories = await _context.Categories.ToListAsync();
+                
             }
         }
     }

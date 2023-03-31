@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9x2MZPa7xRPPiY1AKOQSRVm4lkUFUwoN6CtFh6RpWqU=",
+  "Hash": "2cc8h0ZWP3bOFp+uD5IfT8WepkecWprcGvxuZ+5ow9s=",
   "Source": "Klothing",
   "BasePath": "_content/Klothing",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\leila.noval\\Desktop\\WinterSem\\ITEC245\\Final\\Klothing\\wwwroot\\img\\bg.jpg",
+      "SourceId": "Klothing",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\leila.noval\\Desktop\\WinterSem\\ITEC245\\Final\\Klothing\\wwwroot\\",
+      "BasePath": "_content/Klothing",
+      "RelativePath": "img/bg.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\bg.jpg"
     },
     {
       "Identity": "C:\\Users\\leila.noval\\Desktop\\WinterSem\\ITEC245\\Final\\Klothing\\wwwroot\\img\\blush.jpg",

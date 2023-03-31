@@ -3,16 +3,17 @@
 
 @{
     ViewData["Title"] = "Index";
+    decimal? total = 0;
 }
 
-<h1>Index</h1>
+<h1>Order Number: @Html.DisplayFor(model => model.OrderDetail[0].Order.Id)</h1>
 
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderDetail[0].Product.Image)
-            </th>
+           <th>
+
+           </th>
             <th>
                 @Html.DisplayNameFor(model => model.OrderDetail[0].Product.Name)
             </th>
@@ -22,6 +23,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.OrderDetail[0].Price)
             </th>
+            <th>
+                Total
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -29,10 +33,13 @@
 @foreach (var item in Model.OrderDetail) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Product.Image)
+               <img class="img-fluid" src="~/img/@item.Product.Image">
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Product.Name)
+                <div>
+                  <h5>@Html.DisplayFor(modelItem => item.Product.Name)</h5>
+                  <p>@Html.DisplayFor(modelItem => item.Product.Description)</p>
+                </div>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Quantity)
@@ -40,8 +47,19 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
-           
+                <td>
+                    @{
+                        decimal? itemTotal = item.Quantity * item.Price;
+                        total += itemTotal;
+                    }
+                    $@(item.Price * item.Quantity)
+
+                </td>
         </tr>
 }
     </tbody>
 </table>
+<h3>
+    $@total
+</h3>
+
