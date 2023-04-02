@@ -4,9 +4,8 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
-
+<div class="page">
+<h1>Categories</h1>
 <p>
     <a asp-page="Create">Create New</a>
 </p>
@@ -20,6 +19,9 @@
         </tr>
     </thead>
     <tbody>
+        <form method="post">
+            <button asp-page="./index">Create All Categories</button>
+        </form>
 @foreach (var item in Model.Category) {
         <tr>
             <td>
@@ -34,3 +36,4 @@
 }
     </tbody>
 </table>
+</div>

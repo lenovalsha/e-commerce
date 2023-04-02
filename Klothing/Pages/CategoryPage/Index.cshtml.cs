@@ -28,5 +28,21 @@ namespace Klothing.Pages.CategoryPage
                 Category = await _context.Categories.ToListAsync();
             }
         }
+        public async Task<IActionResult> OnPostAsync()
+        {
+           
+            if (_context.Categories != null)
+            {
+                Category = await _context.Categories.ToListAsync();
+            }
+            string[] categories = { "Blush","Lipsticks","Foundations"};
+            foreach(string category in categories)
+            {
+            Category categories1 = new Category { Name = category };
+            _context.Categories.Add(categories1);
+            }
+            await _context.SaveChangesAsync();
+            return RedirectToPage("./Index");
+        }
     }
 }

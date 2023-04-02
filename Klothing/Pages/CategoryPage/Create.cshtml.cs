@@ -41,5 +41,6 @@ namespace Klothing.Pages.CategoryPage
 
             return RedirectToPage("./Index");
         }
+       
     }
 }

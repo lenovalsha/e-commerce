@@ -23,6 +23,9 @@
         </tr>
     </thead>
     <tbody>
+        <form method="post">
+            <button asp-page="./index">Create All Makeup</button>
+        </form>
 @foreach (var item in Model.Makeup) {
         <tr>
             <td>
