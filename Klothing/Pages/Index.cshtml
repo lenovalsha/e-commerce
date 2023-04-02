@@ -3,10 +3,25 @@
 @{
     ViewData["Title"] = "Home page";
 }
-<div class="top-Image">
+<div class="index">
+    <div class="top-Image">
+    </div>
+    
+    <h4 class="sections-title">Makeup Collection</h4>
+    <form method="post">
+    <div class="sections">
+        <section>
+            <img class="section-Img" src="~/img//blush.jpg"/>
+            <button asp-page="ProductsPage/index" asp-route-categoryId="1">Blush Collection</button>
+        </section>
+        <section>
+                <img class="section-Img" src="~/img/pink.jpg" />
+                <button asp-page="ProductsPage/index" asp-route-categoryId="1">Lipstick Collection</button>
+        </section>
+        <section>
+                <img class="section-Img" />
+                <button asp-page="ProductsPage/index" asp-route-categoryId="1">Foundation Collection</button>
+        </section>
+    </div>
+    </form>
 </div>
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
- 

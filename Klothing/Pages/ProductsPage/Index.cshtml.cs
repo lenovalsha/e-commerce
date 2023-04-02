@@ -27,9 +27,9 @@ namespace Klothing.Pages.ProductsPage
         {
             if (_context.Products != null)
             {
-                var query =  _context.Products
+                var query = _context.Products
                 .Include(p => p.Makeup).AsQueryable();
-                if(!string.IsNullOrEmpty(categoryId))
+                if (!string.IsNullOrEmpty(categoryId))
                 {
                     query = query.Where(p => p.Makeup.CategoryId.ToString() == categoryId);
                 }
@@ -38,8 +38,27 @@ namespace Klothing.Pages.ProductsPage
             if (_context.Categories != null)
             {
                 Categories = await _context.Categories.ToListAsync();
-                
+
             }
         }
+            public async Task OnPostAsync(string categoryId)
+            {
+                if (_context.Products != null)
+                {
+                    var query = _context.Products
+                    .Include(p => p.Makeup).AsQueryable();
+                    if (!string.IsNullOrEmpty(categoryId))
+                    {
+                        query = query.Where(p => p.Makeup.CategoryId.ToString() == categoryId);
+                    }
+                    Products = await query.ToListAsync();
+                }
+                if (_context.Categories != null)
+                {
+                    Categories = await _context.Categories.ToListAsync();
+
+                }
+            }
+        
     }
 }

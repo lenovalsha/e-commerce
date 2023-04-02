@@ -6,6 +6,8 @@
     decimal? total = 0;
 }
 
+<div class="page">
+
 <h1>Order Number: @Html.DisplayFor(model => model.OrderDetail[0].Order.Id)</h1>
 
 <table class="table">
@@ -33,7 +35,7 @@
 @foreach (var item in Model.OrderDetail) {
         <tr>
             <td>
-               <img class="img-fluid" src="~/img/@item.Product.Image">
+               <img class="cart" src="~/img/@item.Product.Image">
             </td>
             <td>
                 <div>
@@ -62,4 +64,5 @@
 <h3>
     $@total
 </h3>
+</div>
 

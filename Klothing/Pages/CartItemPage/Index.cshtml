@@ -6,19 +6,17 @@
     var cartId = HttpContext.Session.GetInt32("cartId");
     decimal? total = 0;
 }
+<div class="page">
 
-<h1>Index</h1>
-
-
+<h1>My Cart</h1>
 <table class="table">
     <thead>
         <tr>
            
             <th>
-                @Html.DisplayNameFor(model => model.CartItem[0].Product)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CartItem[0].Product.Image)
+                Product Info
             </th>
            
             <th>
@@ -30,30 +28,31 @@
             <th>
                 Total
             </th>
-            <th>Delete</th>
+            <th></th>
             
         </tr>
     </thead>
     <tbody>
-
-        @*@if(Model.Cart)*@
         @foreach (var item in Model.CartItem)
         {
-            if (item.IsActive)
-            {
+           
                 <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Product.Name)
+                    <img class="cart" src="~/img/@item.Product.Image">
                 </td>
                 <td>
-                    <img class="img-fluid" src="~/img/@item.Product.Image">
+                 <div>
+                     <h5>@Html.DisplayFor(modelItem => item.Product.Name)</h5>
+                     <p>@Html.DisplayFor(modelItem => item.Product.Description)</p>
+                 </div>
+                    
                 </td>
                 <td>
                     <form method="post">
                     <input type="hidden" name="itemId" value="@item.Id"/> @*send the item Id to the post*@
-                    <button name="operation" value="minus">-</button> @*send the operation*@
+                    <button class="operation" name="operation" value="minus">-</button> @*send the operation*@
                     @Html.DisplayFor(modelItem => item.Quantity)
-                    <button name="operation" value="plus">+</button>@*send the operation*@
+                        <button class="operation" name="operation" value="plus">+</button>@*send the operation*@
                     </form>
                 </td>
           
@@ -69,16 +68,23 @@
                    
                 </td>
                 <td>
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Remove</a>
+                   
+
+                  
+                        <a asp-page="./Delete" asp-route-id="@item.Id"><i class="fa-sharp fa-solid fa-trash"></i></a>
                 </td>
             </tr>
-            }
+            
         }
     </tbody>
 </table>
-<button class="btn btn-outline-primary"><a asp-page="/CheckOutPage/Index" asp-route-productId="@cartId">Check Out</a></button>
-<h3>
+<form method="get">
+        <button asp-page="/CheckOutPage/Index" asp-route-productId="@cartId" class="btn btn-outline-primary checkout">Check Out</button>
+
+</form>
+<h3 class="total">
     $@total
 </h3>
 
+</div>
 

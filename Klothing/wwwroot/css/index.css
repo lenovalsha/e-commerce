@@ -1,0 +1,28 @@
+﻿body {
+}
+.sections-title{
+    position:relative;
+    margin-top:200px;
+}
+.sections {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    margin-bottom: 200px;
+}
+
+    .sections > section {
+        width: 400px;
+        height: 400px;
+        background-color: #a1b4ad;
+    }
+.sections img{
+    width:100%;
+    height:400px;
+}
+    .sections button {
+        width: 100%;
+        height: 50px;
+    }
+    

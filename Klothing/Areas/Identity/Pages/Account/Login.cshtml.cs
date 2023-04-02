@@ -130,7 +130,7 @@ namespace Klothing.Areas.Identity.Pages.Account
                     HttpContext.Session.SetString("email", Input.Email);
 
 
-                    return LocalRedirect(returnUrl);
+                    return RedirectToPage("/ProductsPage/index");
                 }
                 if (result.RequiresTwoFactor)
                 {

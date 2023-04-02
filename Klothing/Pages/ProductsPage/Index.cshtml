@@ -31,8 +31,9 @@
 <div class="rows">
 @foreach (var makeupGroup in productsByMakeup)
 {
-    <div class="container" id="product-@makeupGroup.Key">
+    <div class="containers" id="product-@makeupGroup.Key">
         <section>
+
             <img class="img-fluid" src="~/img/@makeupGroup.First().Image" data-img="@makeupGroup.FirstOrDefault().Image">
             <h3>
                 @Html.DisplayFor(modelItem => @makeupGroup.First().Name)
@@ -41,7 +42,7 @@
                 @Html.DisplayFor(modelItem => @makeupGroup.First().Description)
             </h7>
             <p>
-                @Html.DisplayFor(modelItem => @makeupGroup.First().Price)
+                $@Html.DisplayFor(modelItem => @makeupGroup.First().Price)
             </p>
              @foreach (var item in makeupGroup)
             {
@@ -51,19 +52,9 @@
               <button disabled class="addtocart" id="@item.Id"><a class="disabled" asp-page="./AddCartItem" asp-route-productId="@item.Id">Sold Out</a></button>
                }else
                {
-              <button class="addtocart" id="@item.Id"><a asp-page="./AddCartItem" asp-route-productId="@item.Id">Add to Cart</a></button>
+                <button class="addtocart" id="@item.Id"><a asp-page="./AddCartItem" asp-route-productId="@item.Id">Add to Cart</a></button>
                }
-               @if (User.IsInRole("Admin"))
-               {
-               <td>
-                   @Html.DisplayFor(modelItem => item.QuantityInStock)
-               </td>
-               <td>
-                   <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                   <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                   <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-               </td>
-               }
+               
              }
         </section>
     </div>
