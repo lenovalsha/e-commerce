@@ -28,5 +28,21 @@ namespace Klothing.Pages.StatusPage
                 Status = await _context.Status.ToListAsync();
             }
         }
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (_context.Status != null)
+            {
+                Status = await _context.Status.ToListAsync();
+            }
+            string[] statuses = { "Payment Received", "In-Progress", "Shipped", "Completed" };
+            foreach(string status in statuses)
+            {
+                Status s= new Status { Name = status };
+                _context.Status.Add(s);
+            }
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("./Index");
+        }
     }
 }

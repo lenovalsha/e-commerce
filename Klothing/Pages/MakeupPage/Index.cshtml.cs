@@ -58,7 +58,7 @@ namespace Klothing.Pages.MakeupPage
             foreach (string foundation in foundations)
             {
                 Makeup makeup = new Makeup { Name = foundation };
-                makeup.Category.Id = 3;
+                makeup.CategoryId = 3;
                 _context.Makeups.Add(makeup);
             }
             await _context.SaveChangesAsync();
@@ -70,16 +70,49 @@ namespace Klothing.Pages.MakeupPage
                 {
                     Products products = new Products();
                     products.MakeupId = i;
-                    products.Name = products.Makeup.Name + x;
+
+                    products.Name = blushes[i-1] + x;
                     products.Description = "This is " + products.Name;
-                    products.Image = "b" + i + $"({x})";
+                    products.Image = "b" + i + $" ({x}).jpg";
                     products.QuantityInStock = 12;
-                    products.Price = 24.99;
-
-
+                    products.Price = 24.99m;
+                    _context.Products.Add(products);
 
                 }
             }
+            for (int i = 1; i < 4; i++)
+            {
+                for (int x = 1; x < 4; x++)
+                {
+                    Products products = new Products();
+                    products.MakeupId = i+5;
+                    products.Name = lipsticks[i - 1] + x;
+                    products.Description = "This is " + products.Name;
+                    products.Image = "l" + i + $" ({x}).jpg";
+                    products.QuantityInStock = 12;
+                    products.Price = 12.99m;
+                    _context.Products.Add(products);
+
+                }
+            }
+            for (int i = 1; i < 4; i++)
+            {
+                for (int x = 1; x < 4; x++)
+                {
+                    Products products = new Products();
+                    products.MakeupId = i + 8;
+                    products.Name = foundations[i - 1] + x;
+                    products.Description = "This is " + products.Name;
+                    products.Image = "f" + i + $" ({x}).jpg";
+                    products.QuantityInStock = 12;
+                    products.Price = 42.99m;
+                    _context.Products.Add(products);
+
+                }
+            }
+
+            await _context.SaveChangesAsync();
+
             return RedirectToPage("./Index");
         }
     }

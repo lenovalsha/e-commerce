@@ -5,6 +5,9 @@
     ViewData["Title"] = "Index";
 }
 
+<div class="page">
+
+
 <h1>Index</h1>
 
 <p>
@@ -20,6 +23,9 @@
         </tr>
     </thead>
     <tbody>
+        <form method="post">
+            <button asp-page="./index">Create All Status</button>
+        </form>
 @foreach (var item in Model.Status) {
         <tr>
             <td>
@@ -34,3 +40,4 @@
 }
     </tbody>
 </table>
+</div>

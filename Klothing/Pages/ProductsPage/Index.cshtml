@@ -46,7 +46,7 @@
             </p>
              @foreach (var item in makeupGroup)
             {
-               <button class="btn btn-primary option" data-id="@item.Makeup.Id" data-itemid="@item.Id" data-itemName="@item.Name" data-itemImage="@item.Image" data-itemDescription="@item.Description" style="background-image:url(img/@item.Image)"></button>
+               <button class="btn btn-primary option" data-id="@item.Makeup.Id" data-itemid="@item.Id" data-itemName="@item.Name" data-itemImage="@item.Image" data-itemDescription="@item.Description" style="background-image:url('img/@item.Image')"></button>
                if(item.QuantityInStock <=0)
                {
               <button disabled class="addtocart" id="@item.Id"><a class="disabled" asp-page="./AddCartItem" asp-route-productId="@item.Id">Sold Out</a></button>
